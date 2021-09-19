@@ -1,6 +1,6 @@
 import logo from "./logo.svg";
 import "./App.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
   const studentStyle = {
@@ -11,7 +11,29 @@ function App() {
 
   return (
     <div className="Student">
-      <Counter />
+      {/*  <Counter /> */}
+
+      <ExternalUser />
+    </div>
+  );
+}
+
+function ExternalUser() {
+  const [users, setUsers] = useState([]);
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then((response) => response.json())
+      .then((data) => setUsers(data));
+  }, []);
+
+  return (
+    <div>
+      <h3>External user</h3>
+      {users.map((user) => (
+        <li>
+          {user.name} --- {user.address.street}
+        </li>
+      ))}
     </div>
   );
 }
