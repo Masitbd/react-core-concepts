@@ -18,8 +18,21 @@ function App() {
       naok: "jasim",
     },
   ];
+
+  const students = [
+    {
+      name: "Murad",
+      university: "IUB",
+      country: "Denmark",
+    },
+    {
+      name: "Mamun",
+      university: "Ncc",
+      country: "Bangladesh",
+    },
+  ];
   return (
-    <div className="container">
+    <div className="Student">
       {/*   <ul>
         {nayoks.map((nayok) => (
           <li>{nayok}</li>
@@ -27,6 +40,16 @@ function App() {
       </ul> */}
       {cinamas.map((cinama) => {
         return <Cinama name={cinama.naok} naok={cinama.naok} />;
+      })}
+
+      {students.map((student) => {
+        return (
+          <Student
+            name={student.name}
+            university={student.university}
+            country={student.country}
+          />
+        );
       })}
     </div>
   );
@@ -73,5 +96,15 @@ function Friend(props) {
     </div>
   );
 } */
+
+function Student(props) {
+  return (
+    <div className="student">
+      <h2>name: {props.name}</h2>
+      <h2>university: {props.university}</h2>
+      <h2>country: {props.country}</h2>
+    </div>
+  );
+}
 
 export default App;
