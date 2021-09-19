@@ -2,14 +2,16 @@ import logo from "./logo.svg";
 import "./App.css";
 
 function App() {
+  const nayoks = ["rubel", "manna", "salalman shah"];
   return (
     <div className="App">
-      <a href="https://www.google.com/">Google.com</a>
-      <Person name="Rubel" profession="Nayak" />
-      <Person name="bapparaj" profession="saka khan" />
-      <Person />
-      <Friend name="sujon" />
-      <Student name="murad" profession="student" />
+      <ul>
+        <li>{nayoks[0]}</li>
+        <li>{nayoks[1]}</li>
+        <li>{nayoks[1]}</li>
+      </ul>
+      <Person name={nayoks[1]} profession="Nayak" />
+      <Person name={nayoks[0]} profession="saka khan" />
     </div>
   );
 }
@@ -27,7 +29,7 @@ function Person(props) {
     </div>
   );
 }
-
+/* 
 function Friend(props) {
   return (
     <div>
@@ -35,9 +37,9 @@ function Friend(props) {
       <h6>{props.profession}</h6>
     </div>
   );
-}
+} */
 
-function Student(props) {
+/* function Student(props) {
   return (
     <div>
       <p>
@@ -45,6 +47,6 @@ function Student(props) {
       </p>
     </div>
   );
-}
+} */
 
 export default App;
