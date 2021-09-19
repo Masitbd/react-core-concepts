@@ -3,15 +3,31 @@ import "./App.css";
 
 function App() {
   const nayoks = ["rubel", "manna", "salalman shah"];
+
+  const cinamas = [
+    {
+      name: "padda nodir maji",
+      naok: "kopila",
+    },
+    {
+      name: "maji",
+      naok: "Arona",
+    },
+    {
+      name: "mastan",
+      naok: "jasim",
+    },
+  ];
   return (
-    <div className="App">
-      <ul>
-        <li>{nayoks[0]}</li>
-        <li>{nayoks[1]}</li>
-        <li>{nayoks[1]}</li>
-      </ul>
-      <Person name={nayoks[1]} profession="Nayak" />
-      <Person name={nayoks[0]} profession="saka khan" />
+    <div className="container">
+      {/*   <ul>
+        {nayoks.map((nayok) => (
+          <li>{nayok}</li>
+        ))}
+      </ul> */}
+      {cinamas.map((cinama) => {
+        return <Cinama name={cinama.naok} naok={cinama.naok} />;
+      })}
     </div>
   );
 }
@@ -26,6 +42,15 @@ function Person(props) {
     <div style={singleStyle}>
       <h1>{props.name}</h1>
       <h4> {props.profession}</h4>
+    </div>
+  );
+}
+
+function Cinama(props) {
+  return (
+    <div>
+      <h2>name:{props.name}</h2>
+      <h6>Nayika: {props.naok}</h6>
     </div>
   );
 }
