@@ -49,4 +49,7 @@
 .Student{
   background-color: bisque;
   border: 2px solid green;
+  align-items: center;
+  width: 50%;
+  margin: auto;
 }
