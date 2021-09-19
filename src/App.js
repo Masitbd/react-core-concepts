@@ -13,7 +13,8 @@ function App() {
     <div className="Student">
       {/*  <Counter /> */}
 
-      <ExternalUser />
+      {/*  <ExternalUser /> */}
+      <ExternalPosts />
     </div>
   );
 }
@@ -30,10 +31,34 @@ function ExternalUser() {
     <div>
       <h3>External user</h3>
       {users.map((user) => (
-        <li>
-          {user.name} --- {user.address.street}
-        </li>
+        <User name={user.name}> </User>
       ))}
+    </div>
+  );
+}
+
+function ExternalPosts() {
+  const [posts, setPost] = useState([]);
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/comments")
+      .then((rsponse) => rsponse.json())
+      .then((data) => setPost(data));
+  }, []);
+  return (
+    <div>
+      <h3>comments</h3>
+      {posts.map((post) => (
+        <li>{post.name}</li>
+      ))}
+    </div>
+  );
+}
+
+function User(props) {
+  return (
+    <div>
+      <h3>{props.name}</h3>
+      <h3>{props.email}</h3>
     </div>
   );
 }
