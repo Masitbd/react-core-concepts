@@ -2,6 +2,7 @@ import logo from "./logo.svg";
 import "./App.css";
 
 function App() {
+  const studentStyle = { borderRadius: "10px", border: "2px solid red" };
   const nayoks = ["rubel", "manna", "salalman shah"];
 
   const cinamas = [
@@ -32,23 +33,25 @@ function App() {
     },
   ];
   return (
-    <div className="Student">
+    <div className="Student" style={studentStyle}>
       {/*   <ul>
         {nayoks.map((nayok) => (
           <li>{nayok}</li>
         ))}
       </ul> */}
-      {cinamas.map((cinama) => {
+      {/* {cinamas.map((cinama) => {
         return <Cinama name={cinama.naok} naok={cinama.naok} />;
-      })}
+      })} */}
 
       {students.map((student) => {
         return (
-          <Student
-            name={student.name}
-            university={student.university}
-            country={student.country}
-          />
+          <div style={studentStyle}>
+            <Student
+              name={student.name}
+              university={student.university}
+              country={student.country}
+            />
+          </div>
         );
       })}
     </div>
